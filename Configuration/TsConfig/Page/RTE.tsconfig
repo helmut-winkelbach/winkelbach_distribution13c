@@ -1,0 +1,9 @@
+#############
+#### RTE ####
+#############
+RTE {
+    default {
+        preset = winkelbach_distribution
+    }
+}
+options.RTE.popupWindowSize = 1500x900

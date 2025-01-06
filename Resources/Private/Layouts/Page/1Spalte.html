@@ -1,0 +1,40 @@
+<div class="pageheader container">
+ <a href="#" class="scrollToTop fa fa-chevron-up fa-lg"></a>
+  <div class="row">
+		<div class="mainnav">
+			<nav class="main-nav container" role="navigation">
+				<input id="main-menu-state" type="checkbox"/>
+				<label class="main-menu-btn" for="main-menu-state" title="Close">
+					<span class="main-menu-btn-icon"></span>
+				</label>
+			<f:render partial="MainNavigation" arguments="{_all}"/>
+			</nav>
+		</div>
+			<f:render partial="SearchForm"/> 
+			<f:if condition="{languageMenu}">
+        <f:render partial="LanguageMenu" arguments="{_all}" />
+			</f:if>
+	</div>
+</div>
+		<f:render section="1Spalte"/>
+<div class="content-container">
+	<f:cObject typoscriptObjectPath="lib.rootline"/>
+<div class="container maincontent">
+	<!--TYPO3SEARCH_begin-->
+	<div class="row">
+		<div class="col-md-12">
+    <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{colPos: '0'}" />
+		</div>
+	</div>
+</div>
+	<!--TYPO3SEARCH_end-->
+</div>
+
+<div class="container maincontent3">
+	<div class="row">
+		<div class="col-md-12">
+    <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{colPos: '5', slide: '-1'}" />
+		</div>
+	</div>
+</div>
+    <f:render partial="Footer"/>

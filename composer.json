@@ -1,0 +1,37 @@
+{
+    "name": "winkelbach-webdesign/winkelbach-distribution13c",
+    "type": "typo3-cms-extension",
+    "description": "Sitepackage",
+    "homepage": "https://www.winkelbach-web.de/sign/",
+    "authors": [
+        {
+            "name": "Helmut Winkelbach",
+            "role": "Developer"
+        }
+    ],
+    "license": [
+        "MIT"
+    ],
+    "license": ["GPL-2.0-or-later"],
+    "keywords": ["TYPO3 CMS"],
+    "require": {
+        "php": "^8.3",
+        "typo3/cms-backend": "^12.4 || ^13.4.99",
+        "typo3/cms-beuser": "^12.4 || ^13.4.99",
+        "typo3/cms-core": "^12.4 || ^13.4.99",
+        "typo3/cms-frontend": "^12.4 || ^13.4.99",
+        "typo3/cms-rte-ckeditor": "^12.4 || ^13.4.99",
+        "typo3/cms-fluid-styled-content": "^12.4 || ^13.4.99"
+    },
+    "autoload": {
+        "psr-4": {
+            "WinkelbachWebdesign\\WinkelbachDistribution13c\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "winkelbach_distribution13c"
+            "web-dir": ".Build/public"
+        }
+    }
+}

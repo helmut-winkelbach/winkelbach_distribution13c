@@ -1,0 +1,123 @@
+renderingOptions:
+  submitButtonLabel: Отправить
+type: Form
+identifier: kontaktRU
+label: Контакт
+prototypeName: standard
+finishers:
+  -
+    options:
+      subject: 'Mail to Семья Винкельбах: {subject}'
+      senderAddress: info@winkelbach-web.de
+      senderName: '{name}'
+      attachUploads: false
+      templateRootPaths:
+        20: 'EXT:winkelbach_distribution13c/Resources/Private/Frontend/Templates/Finishers/Kontakt-G/Receiver/'
+      translation:
+        language: default
+      recipients:
+        info@winkelbach-web.de: Семья Винкельбах
+      addHtmlPart: true
+      useFluidEmail: false
+      title: 'Семья Винкельбах'
+    identifier: EmailToReceiver
+  -
+    options:
+      subject: 'Ваша почта для Семья Винкельбах: {subject}'
+      senderAddress: info@winkelbach-web.de
+      senderName: Семья Винкельбах
+      attachUploads: false
+      templateRootPaths:
+        30: 'EXT:winkelbach_distribution13c/Resources/Private/Frontend/Templates/Finishers/Kontakt-G/Sender/'
+      translation:
+        language: default
+      recipients:
+        '{email}': '{name}'
+      addHtmlPart: true
+      useFluidEmail: false
+      title: 'Семья Винкельбах'
+    identifier: EmailToSender
+  -
+    options:
+      pageUid: '1'
+      additionalParameters: ''
+    identifier: Redirect
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: 'Previous step'
+      nextButtonLabel: 'Next step'
+    identifier: page-1
+    label: 'Ваш запрос'
+    type: Page
+    renderables:
+      -
+        defaultValue: ''
+        properties:
+          placeholder: Name
+        identifier: name
+        label: Контактное лицо
+        type: Text
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        properties:
+          placeholder: Subject
+        identifier: subject
+        label: Предмет
+        type: Text
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        type: Text
+        identifier: email
+        label: 'Электронная почта'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+          validationErrorMessages:
+            -
+              code: 1221559976
+              message: 'Пожалуйста, введите полный адрес электронной почты'
+        validators:
+          -
+            identifier: NotEmpty
+          -
+            identifier: EmailAddress
+      -
+        defaultValue: ''
+        properties:
+          placeholder: ''
+        identifier: message
+        label: 'Ваш запрос'
+        type: Textarea
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        type: Checkbox
+        identifier: checkbox-1
+        label: ' Согласие на хранение данных в соответствии с DSGVO / GDPR '
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        properties:
+          text: '  Я согласен с тем, что мои данные из контактной формы будут собраны и обработаны для ответа на мой запрос. Данные будут удалены после обработки моего запроса. Примечание. Вы можете отозвать свое согласие в любое время в будущем по электронной почте на info (at) winkelbach-web.de. Подробную информацию об обработке пользовательских данных можно найти в нашей политике конфиденциальности.  '
+        type: StaticText
+        identifier: statictext-1
+        label: ''
+  -
+    renderingOptions:
+      previousButtonLabel: 'Предыдущий шаг'
+      nextButtonLabel: 'Следующий шаг'
+    identifier: summarypage
+    label: Резюме
+    type: SummaryPage

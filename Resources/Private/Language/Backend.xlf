@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2019-07-19T09:11:39Z">
+        <header/>
+        <body>
+
+            <trans-unit id="advanced">
+                <source>Advanced</source>
+            </trans-unit>
+            <trans-unit id="settings">
+                <source>Settings</source>
+            </trans-unit>
+            <trans-unit id="pages.nav_icon">
+                <source>Pages Nav_icon</source>
+            </trans-unit>
+            <trans-unit id="pages.thumbnail">
+                <source>Pages Thumbnail</source>
+            </trans-unit>
+            <trans-unit id="pages.nav_icon">
+                <source>Pages Nav_icon</source>
+            </trans-unit>
+            
+            <trans-unit id="content_element.timeline">
+                <source>Timeline</source>
+            </trans-unit>
+            <trans-unit id="content_element.timeline.description">
+                <source>Insert a element to display a timeline</source>
+            </trans-unit>
+            
+            <trans-unit id="timeline.options">
+                <source>Timeline Options</source>
+            </trans-unit>
+            <trans-unit id="timeline.sorting">
+                <source>Sorting</source>
+            </trans-unit>
+            <trans-unit id="timeline.sorting.asc">
+                <source>Ascending</source>
+            </trans-unit>
+            <trans-unit id="timeline.sorting.desc">
+                <source>Descending</source>
+            </trans-unit>
+
+            <trans-unit id="timeline_item">
+                <source>Timeline Item</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.tt_content">
+                <source>Timeline</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.date">
+                <source>Date</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.header">
+                <source>Header</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.bodytext">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.icon_set">
+                <source>Icon Set</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.icon_identifier">
+                <source>Icon</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.icon_file">
+                <source>Icon File</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.image">
+                <source>Image</source>
+            </trans-unit>
+
+            <trans-unit id="ratio.16_9">
+                <source>16:9</source>
+            </trans-unit>
+            <trans-unit id="ratio.4_3">
+                <source>4:3</source>
+            </trans-unit>
+            <trans-unit id="ratio.1_1">
+                <source>1:1</source>
+            </trans-unit>
+            <trans-unit id="ratio.free">
+                <source>Free</source>
+            </trans-unit>
+
+            <trans-unit id="option.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="option.extrasmall">
+                <source>Extra Small</source>
+            </trans-unit>
+            <trans-unit id="option.small">
+                <source>Small</source>
+            </trans-unit>
+            <trans-unit id="option.medium">
+                <source>Medium</source>
+            </trans-unit>
+            <trans-unit id="option.xlarge">
+                <source>Extra Large</source>
+            </trans-unit>
+            <trans-unit id="option.large">
+                <source>Large</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

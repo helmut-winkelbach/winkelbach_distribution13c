@@ -1,0 +1,77 @@
+plugin.tx_indexedsearch.settings.defaultOptions.languageUid = 0
+
+plugin.tx_indexedsearch._LOCAL_LANG.en {
+  searchFor = Search for:
+  form.submit = Search
+  result.noResult = No results!
+}
+
+[siteLanguage("locale") == "en_EN.UTF-8"]
+[siteLanguage("title") == "English"]
+plugin.tx_indexedsearch.settings.defaultOptions.languageUid = 1
+plugin.tx_indexedsearch._LOCAL_LANG.en {
+  searchFor = Search for:
+  form.submit = Search
+  result.noResult = No results!
+}
+[GLOBAL]
+
+[siteLanguage("locale") == "ru_RU.UTF-8"]
+[siteLanguage("title") == "Русский"]
+plugin.tx_indexedsearch.settings.defaultOptions.languageUid = 1
+plugin.tx_indexedsearch._LOCAL_LANG.ru {
+	searchFor = Поиск:
+	form.submit = Найти
+	result.noResult = Результатов не найдено!
+}
+[GLOBAL]
+
+lib.searchlink = TEXT
+lib.searchlink {
+   value = {$searchName}<button class="btn btn-primary" type="button" aria-label="{$searchName}"><i class="fa fa-search fa-lg"></i></button>
+   typolink.parameter = t3://page?uid={$searchId}
+   stdWrap.typolink.title = {$searchName}
+}
+
+plugin.tx_indexedsearch.settings.displayResultNumber = 9
+
+plugin.tx_indexedsearch.view.templateRootPaths {
+0 = EXT:indexed_search/Resources/Private/Templates/
+10 = {$plugin.tx_indexedsearch.view.templateRootPath}
+100 = {$resDir}/Resources/Private/Ext/indexed_search/Templates/
+}
+plugin.tx_indexedsearch.view.partialRootPaths {
+0 = EXT:indexed_search/Resources/Private/Partials/
+10 = {$plugin.tx_indexedsearch.view.partialRootPath}
+100 = {$resDir}/Resources/Private/Ext/indexed_search/Partials/
+}
+
+plugin.tx_indexedsearch.settings {
+  targetPid = 41
+  rootPidList = 1
+  defaultOptions.extResume = 1
+  defaultOptions.searchType = 1
+  defaultOptions.defaultOperand = 0
+  defaultOptions.sections = 0
+  defaultOptions.freeIndexUid = -1
+  forwardSearchWordsInResultLink = 0
+  forwardSearchWordsInResultLink.no_cache = 1
+
+  results {
+      titleCropAfter = 70
+      titleCropSignifier = ...
+      summaryCropAfter = 300
+      summaryCropSignifier = ...
+      hrefInSummaryCropAfter = 60
+      hrefInSummaryCropSignifier = ...
+      markupSW_summaryMax = 300
+      markupSW_postPreLgd = 60
+      markupSW_postPreLgd_offset = 5
+      markupSW_divider = ...
+      markupSW_divider.noTrimWrap = | | |
+    }
+  blind.numberOfResults = 15
+  blind.freeIndexUid = 1
+
+} 
+

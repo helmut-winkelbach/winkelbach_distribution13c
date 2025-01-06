@@ -1,0 +1,124 @@
+
+renderingOptions:
+  submitButtonLabel: Absenden
+type: Form
+identifier: kontakt-g
+label: Kontakt
+prototypeName: standard
+finishers:
+  -
+    options:
+      subject: 'Mail von Winkelbach-Familie: {subject}'
+      senderAddress: info@winkelbach-web.de
+      senderName: '{name}'
+      attachUploads: false
+      templateRootPaths:
+        20: 'EXT:winkelbach_distribution13c/Resources/Private/Frontend/Templates/Finishers/Kontakt-G/Receiver/'
+      translation:
+        language: default
+      recipients:
+        info@winkelbach-web.de: Winkelbach-Familie
+      addHtmlPart: true
+      useFluidEmail: false
+      title: 'Winkelbach-Familie Gästebuch'
+    identifier: EmailToReceiver
+  -
+    options:
+      subject: 'Ihre Mail an Winkelbach-Familie: {subject}'
+      senderAddress: info@winkelbach-web.de
+      senderName: Winkelbach-Familie
+      attachUploads: false
+      templateRootPaths:
+        30: 'EXT:winkelbach_distribution13c/Resources/Private/Frontend/Templates/Finishers/Kontakt-G/Sender/'
+      translation:
+        language: default
+      recipients:
+        '{email}': '{name}'
+      addHtmlPart: true
+      useFluidEmail: false
+      title: 'Winkelbach-Familie Gästebuch'
+    identifier: EmailToSender
+  -
+    options:
+      pageUid: '16'
+      additionalParameters: ''
+    identifier: Redirect
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: 'Previous step'
+      nextButtonLabel: 'Next step'
+    identifier: page-1
+    label: 'Ihr Gästebuch Eintrag'
+    type: Page
+    renderables:
+      -
+        defaultValue: ''
+        properties:
+          placeholder: Name
+        identifier: name
+        label: Name
+        type: Text
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        properties:
+          placeholder: Subject
+        identifier: subject
+        label: Betreff
+        type: Text
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        type: Text
+        identifier: email
+        label: 'Ihre E-Mail'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+          validationErrorMessages:
+            -
+              code: 1221559976
+              message: 'Bitte eine volle E-Mail Adresse angeben'
+        validators:
+          -
+            identifier: NotEmpty
+          -
+            identifier: EmailAddress
+      -
+        defaultValue: ''
+        properties:
+          placeholder: ''
+        identifier: message
+        label: 'Ihre Wünsche'
+        type: Textarea
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        type: Checkbox
+        identifier: checkbox-1
+        label: ' Zustimmung zur Datenspeicherung lt. DSGVO '
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        properties:
+          text: ' Ich stimme zu, dass meine Angaben aus dem Kontaktformular zur Beantwortung meiner Anfrage erhoben und verarbeitet werden. Die Daten werden nach abgeschlossener Bearbeitung Ihrer Anfrage gelöscht. Hinweis: Sie können Ihre Einwilligung jederzeit für die Zukunft per E-Mail an info at winkelbach-web.de widerrufen. Detaillierte Informationen zum Umgang mit Nutzerdaten finden Sie in unserer Datenschutzerklärung. '
+        type: StaticText
+        identifier: statictext-1
+        label: ''
+  -
+    renderingOptions:
+      previousButtonLabel: 'Vorheriger Schritt'
+      nextButtonLabel: 'Nächster Schritt'
+    identifier: summarypage
+    label: Zusammenfassung
+    type: SummaryPage

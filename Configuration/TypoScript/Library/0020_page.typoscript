@@ -1,0 +1,212 @@
+# Default PAGE object:
+config.contentObjectExceptionHandler = 0
+page = PAGE
+
+
+page.headerData.23471 >
+page.headerData.23471 = COA
+page.headerData.23471 {
+  # iPhone
+  10 = IMAGE
+  10 {
+    file = {$resDir}/Resources/Public/Icons/appicon-square.png
+    file.width = 60
+    file.height = 60
+    layoutKey = apple-touch-icon
+    layout {
+      apple-touch-icon {
+        element = <link rel="apple-touch-icon" href="###SRC###"###SELFCLOSINGTAGSLASH###>
+      }
+
+      apple-touch-icon-with-sizes {
+        element = <link rel="apple-touch-icon" sizes="###WIDTH###x###HEIGHT###" href="###SRC###"###SELFCLOSINGTAGSLASH###>
+      }
+
+      msapplication-TileImage {
+        element = <meta name="msapplication-TileImage" content="###SRC###"###SELFCLOSINGTAGSLASH###>
+      }
+
+      msapplication-square {
+        element = <meta name="msapplication-square###WIDTH###x###HEIGHT###logo" content="###SRC###"###SELFCLOSINGTAGSLASH###>
+      }
+
+      msapplication-wide {
+        element = <meta name="msapplication-wide###WIDTH###x###HEIGHT###logo" content="###SRC###"###SELFCLOSINGTAGSLASH###>
+      }
+    }
+  }
+
+  # iPad
+  20 < .10
+  20.layoutKey = apple-touch-icon-with-sizes
+  20.file.width = 76
+  20.file.height = 76
+
+  # iPhone Retina
+   30 < .20
+  30.file.width = 120
+  30.file.height = 120
+
+  # iPad Retina
+  40 < .20
+  40.file.width = 152
+  40.file.height = 152
+
+  110 < .10
+  110.layoutKey = msapplication-TileImage
+  110.file.width = 144
+  110.file.height = 144
+
+  120 < .10
+  120.layoutKey = msapplication-square
+  120.file.width = 70
+  120.file.height = 70
+
+  130 < .10
+  130.layoutKey = msapplication-square
+  130.file.width = 150
+  130.file.height = 150
+
+  140 < .10
+  140.layoutKey = msapplication-square
+  140.file.width = 310
+  140.file.height = 310
+
+  150 < .10
+  150.layoutKey = msapplication-wide
+  150.file = {$resDir}/Resources/Public/Icons/appicon-wide.png
+  150.file.width = 310
+  150.file.height = 150c
+}
+page {
+#typeNum = 0
+shortcutIcon = {$resDir}/Resources/Public/Icons/appicon-square.png 
+}
+
+/*
+page {
+  headerData {
+    19120 = TEXT
+    19120 {
+      field = title
+      noTrimWrap = |<title> | </title>|
+    }
+  }
+}
+/*
+[PIDinRootline = 7,8,9,10,12,20,21,22,23,25,26,27,28,33,61,69,74,79,94]
+page {
+  headerData {
+    19120 = TEXT
+    19120 {
+      field = title
+      noTrimWrap = |<title> | - Winkelbach-Webdesign</title>|
+    }
+  }
+}
+[GLOBAL]
+
+[PIDinRootline = 34,36,37,42,43,45,49,50,51,53,54,63,62,68,75,79,80,86,88,90,107,108]
+page {
+  headerData {
+    19120 = TEXT
+    19120 {
+      field = title
+      noTrimWrap = |<title> | - Winkelbach-Webdesign</title>|
+    }
+  }
+}
+*/
+[GLOBAL]
+[siteLanguage("locale") == "en_EN.UTF-8"]
+[siteLanguage("title") == "English"]
+page {
+    headerData {
+     120 = TEXT
+     120 {
+		value = {$siteTitle} {TSFE:page|title}
+      field = title
+      noTrimWrap = |<title>| - History of the Baha’i Faith in Belarus</title>
+    }
+  }
+}
+[GLOBAL]
+
+[siteLanguage("locale") == "ru_RU.UTF-8"]
+[siteLanguage("title") == "Русский"]
+page {
+    headerData {
+     120 = TEXT
+     120 {
+		value = {$siteTitle} {TSFE:page|title}
+      field = title
+      noTrimWrap = |<title>| - История Веры Бахаи в Беларуси</title>
+    }
+  }
+}
+[GLOBAL]
+
+lib.stdheader.stdWrap.dataWrap >
+lib.stdheader.10.1.dataWrap = <h1>|</h1>
+lib.stdheader.10.2.dataWrap = <h2>|</h2>
+lib.stdheader.10.3.dataWrap = <h3>|</h3>
+lib.stdheader.10.3.dataWrap = <h4>|</h4>
+lib.stdheader.10.3.dataWrap = <h5>|</h5>
+
+page.bodyTagCObject = COA
+page.bodyTagCObject.10 = TEXT
+page.bodyTagCObject.10.field = uid
+page.bodyTagCObject.10.wrap = <body class ="page-|">
+
+tt_content.image.20.1.file.crop =
+tt_content.uploads.20.renderObj.30.br = 1
+
+
+page.301 = TEXT
+page.301.value (
+<noscript>
+ <div id="noscript-hint">Please activate Javascript in your browser</div>
+</noscript>
+)
+
+	Logo = IMAGE
+	Logo {
+    altText ="A Brief History of the Baha’i Faith in Belarus"
+		imageLinkWrap = 1
+		imageLinkWrap.enable = 1
+		imageLinkWrap.typolink.parameter = t3://page?uid={$rootId}
+    file = {$resDir}/Resources/Public/Images/vera-bakhai-v-belarusi.png
+		file.width = 50c
+		file.height = 51c
+		altText = {$siteName}
+		imageLinkWrap.typolink.title = "A Brief History of the Baha’i Faith in Belarus"
+		}
+    
+[siteLanguage("locale") == "de_DE.UTF-8"]
+	Logo = IMAGE
+	Logo {
+    altText ="A Brief History of the Baha’i Faith in Belarus"
+		imageLinkWrap = 1
+		imageLinkWrap.enable = 1
+		imageLinkWrap.typolink.parameter = t3://page?uid={$rootId}
+    file = {$resDir}/Resources/Public/Images/vera-bakhai-v-belarusi.png
+		file.width = 50c
+		file.height = 51c
+		imageLinkWrap.typolink.title = "A Brief History of the Baha’i Faith in Belarus"
+		}
+[GLOBAL]
+    
+[siteLanguage("locale") == "ru_RU.UTF-8"]
+	Logo = IMAGE
+	Logo {
+    altText = "Краткая история Веры Бахаи в Беларуси"
+		imageLinkWrap = 1
+		imageLinkWrap.enable = 1
+		imageLinkWrap.typolink.parameter = t3://page?uid={$rootId}
+    file = {$resDir}/Resources/Public/Images/vera-bakhai-v-belarusi.png
+		file.width = 50c
+		file.height = 51c
+		imageLinkWrap.typolink.title = Краткая история Веры Бахаи в Беларуси
+		}
+[GLOBAL]
+

@@ -1,0 +1,112 @@
+renderingOptions:
+  submitButtonLabel: Absenden
+type: Form
+identifier: kontakt
+label: Kontakt
+prototypeName: standard
+finishers:
+  -
+    options:
+      subject: 'Mail von Winkelbach-Familie: {subject}'
+      senderAddress: info@winkelbach-web.de
+      senderName: '{name}'
+      attachUploads: false
+      templateRootPaths:
+        20: 'EXT:winkelbach_distribution13c/Resources/Private/Frontend/Templates/Finishers/Kontakt-G/Receiver/'
+      translation:
+        language: default
+      recipients:
+        info@winkelbach-web.de: Winkelbach-Familie
+      addHtmlPart: true
+      useFluidEmail: false
+      title: 'Winkelbach-Familie'
+    identifier: EmailToReceiver
+  -
+    options:
+      subject: 'Ihre Mail an Winkelbach-Familie: {subject}'
+      senderAddress: info@winkelbach-web.de
+      senderName: Winkelbach-Familie
+      attachUploads: false
+      templateRootPaths:
+        30: 'EXT:winkelbach_distribution13c/Resources/Private/Frontend/Templates/Finishers/Kontakt-G/Sender/'
+      translation:
+        language: default
+      recipients:
+        '{email}': '{name}'
+      addHtmlPart: true
+      useFluidEmail: false
+      title: 'Winkelbach-Familie'
+    identifier: EmailToSender
+  -
+    options:
+      pageUid: '1'
+      additionalParameters: ''
+    identifier: Redirect
+renderables:
+  -
+    identifier: page-1
+    label: 'Ihre Anfrage'
+    type: Page
+    renderables:
+      -
+        properties:
+          placeholder: Name
+        defaultValue: ''
+        identifier: name
+        label: Name
+        type: Text
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        properties:
+          placeholder: Subject
+        defaultValue: ''
+        identifier: subject
+        label: Betreff
+        type: Text
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        properties:
+          placeholder: 'Email address'
+        defaultValue: ''
+        identifier: email
+        label: E-Mail
+        type: Text
+        validators:
+          -
+            identifier: NotEmpty
+          -
+            identifier: EmailAddress
+      -
+        properties:
+          placeholder: ''
+        defaultValue: ''
+        identifier: message
+        label: 'Ihre Anfrage'
+        type: Textarea
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        type: Checkbox
+        identifier: checkbox-1
+        label: ' Zustimmung zur Datenspeicherung lt. DSGVO '
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        label: 'Content element'
+        properties:
+          contentElementUid: '1885'
+        type: ContentElement
+        identifier: contentelement-1
+  -
+    identifier: summarypage
+    label: Zusammenfassung
+    type: SummaryPage

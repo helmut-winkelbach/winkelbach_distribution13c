@@ -1,0 +1,7 @@
+#page.10.dataProcessing {
+#      410 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
+#      410 {
+#          languages = auto
+#          as = languageMenu
+#      }
+#}

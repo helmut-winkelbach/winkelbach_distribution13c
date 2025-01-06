@@ -1,0 +1,131 @@
+### Setup Root Template 13 LTS ###
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/0010_config.typoscript'
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/0020_page.typoscript'
+
+#@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/0021_page.meta.typoscript'
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/jumbotronbg.typoscript'
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/Container.typoscript'
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/ext.search.typoscript'
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/ContentElement.typoscript'
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/ext.blog.typoscript'
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/ext.forms.typoscript'
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/lib.languagemenu.typoscript'
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/lib.copyright.typoscript'
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/lib.mainnav.typoscript'
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/lib.metanav.typoscript'
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/lib.rootline.typoscript'
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/lib.subnavigation.typoscript'
+/*
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Library/Timeline.typoscript'
+*/
+@import 'EXT:winkelbach_distribution13c/Configuration/TypoScript/Helper/DynamicContent.typoscript'
+
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
+/*
+ lib.contentElement.settings.media.popup {
+   JSwindow = 0
+   directImageLink = 1
+   linkParams.ATagParams.dataWrap = class="lightbox" rel="lightbox{field:uid}"  title="{file:current:title}"   
+ }
+/* 
+lib.contentElement.settings.media.popup {
+	linkParams.ATagParams.stdWrap >
+	linkParams.ATagParams.dataWrap = id="ex-{file:current:uid}" class=""lightbox" rel="lightbox[{field:uid}]" title="{file:current:description}" data-effect="fade"
+	directImageLink = 1
+}
+
+#lib.contentElement.settings.media.popup.linkParams.ATagParams.dataWrap = class="lightbox" rel="lightbox[{field:uid}]" title="{file:current:description}"
+#lib.fluidContent.settings.media.popup.linkParams.ATagParams.dataWrap = class="lightbox" rel="lightbox[{file:current:uid_foreign}]" title="{file:current:description}"
+*/
+
+#### PAGE ####
+page = PAGE
+page {
+    typeNum = 0
+    shortcutIcon = EXT:winkelbach_distribution13c/Resources/Public/Icons/favicon.ico
+
+    10 = FLUIDTEMPLATE
+    10 {
+        templateName = TEXT
+        templateName {
+            cObject = TEXT
+            cObject {
+                data = pagelayout
+                required = 1
+                case = uppercamelcase
+                split {
+                    token = pagets__
+                    cObjNum = 1
+                    1.current = 1
+                }
+            }
+            ifEmpty = Default
+        }
+        templateRootPaths {
+            0 = EXT:winkelbach_distribution13c/Resources/Private/Templates/Page/
+            1 = {$page.fluidtemplate.templateRootPath}
+        }
+        partialRootPaths {
+            0 = EXT:winkelbach_distribution13c/Resources/Private/Partials/Page/
+            1 = {$page.fluidtemplate.partialRootPath}
+        }
+        layoutRootPaths {
+            0 = EXT:winkelbach_distribution13c/Resources/Private/Layouts/Page/
+            1 = {$page.fluidtemplate.layoutRootPath}
+        }
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+                references.fieldName = media
+            }
+            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            20 {
+                levels = 2
+                includeSpacer = 1
+                as = mainnavigation
+            }
+      410 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
+      410 {
+          languages = auto
+          as = languageMenu
+      }
+     }
+    }
+
+    includeCSSLibs {
+    }
+
+    includeCSS {
+  fontawesome = {$resDir}/Resources/Public/Css/Fontawesome/fontawesome.css
+  fontawesomesolid = {$resDir}/Resources/Public/Css/Fontawesome/solid.css
+  winkelbach_distribution_layout = {$resDir}/Resources/Public/Css/mystyles.css
+    }
+
+    includeJSLibs {
+    }
+
+    includeJS {
+  }
+
+    includeJSFooterlibs {
+	5 = {$resDir}/Resources/Public/JavaScript/jquery-3.7.1.min.js
+  10 = {$resDir}/Resources/Public/JavaScript/tether.min.js
+	10.async = 1
+	10.disableCompression = 0
+	20 = {$resDir}/Resources/Public/JavaScript/bootstrap.min.js
+	20.async = 1
+	20.disableCompression = 1
+	30 = {$resDir}/Resources/Public/JavaScript/jquery.smartmenus.min.js
+	30.async = 1
+	30.disableCompression = 1
+	40 = {$resDir}/Resources/Public/JavaScript/custom.js
+	40.async = 1
+  media2click = {$resDir}/Resources/Public/JavaScript/media2click.js
+  media2click.forceOnTop = 1
+	lightbox = {$resDir}/Resources/Public/JavaScript/lightbox.min-EN.js
+	lightbox.disableCompression = 1
+}
+    includeJSFooter {
+        winkelbach_distribution_scripts = EXT:winkelbach_distribution13c/Resources/Public/JavaScript/Dist/scripts.js
+    }
+}

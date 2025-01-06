@@ -1,0 +1,43 @@
+<html data-namespace-typo3-fluid="true" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+  <div class="dpnglossary details">
+    <dl>
+       <h2>{term.name}, </h2> <h3><f:for each="{term.descriptions}" as="description" iteration="iterator"> {description.meaning}</h3>
+          <div class="text">
+            <f:format.html parseFuncTSPath="lib.parseFunc">{description.text}</f:format.html>
+          </div>
+          <f:if condition="false === {iterator.isLast}">
+            <hr/>
+          </f:if>
+        </f:for>
+
+      <f:if condition="{term.synonyms}">
+        <dd>{f:translate(key: 'tx_dpnglossary_domain_model_term.synonyms')}: {f:if(condition: synonymIterator.isLast, then: '{synonym.name}', else: '{synonym.name}, ') -> f:for(each: term.synonyms, iteration: 'synonymIterator', as: 'synonym')}</dd>
+      </f:if>
+      <f:if condition="{term.termType}">
+        <dd>
+          {f:translate(key: 'tx_dpnglossary_domain_model_term.term_type')}: {term.termType}
+        </dd>
+      </f:if>
+      <f:if condition="{term.termLang}">
+        <dd>{f:translate(key: 'tx_dpnglossary_domain_model_term.term_lang')}: {term.termLang}</dd>
+      </f:if>
+      <f:if condition="{term.media}">
+        <dd class="media">
+          <f:for each="{term.media}" as="media">
+            <div class="glossar-img">
+              <f:image image="{media}" title="{media.title}" alt="{media.alt}" maxWidth="520" height="m300"/>
+         <figcaption class="image-caption">
+             {media.title}
+         </figcaption>
+
+            </div>
+          </f:for>
+        </dd>
+      </f:if>
+    </dl>
+  </div>
+
+</html>

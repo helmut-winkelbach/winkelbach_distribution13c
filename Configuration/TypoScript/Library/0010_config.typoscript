@@ -1,0 +1,92 @@
+config.additionalHeaders {
+   5.header = Content-Type:text/html;charset=utf-8
+  10.header = x-xss-protection: 1; mode=block
+  20.header = x-frame-options: SAMEORIGIN
+  40.header = X-Powered-By: nothing
+  50.header = strict-transport-security: max-age=31536000; includeSubDomains; preload;
+  60.header = Referrer-Policy: strict-origin
+  70.header = Content-Security-Policy: img-src 'self' https: data:; 
+  80.header = Permissions-Policy: fullscreen=(self "https://www.historyby.winkelbach-web.de/"), geolocation=*, camera=()
+}
+
+#### CONFIG ####
+config {
+	contentObjectExceptionHandler = 0
+    absRefPrefix = auto
+    no_cache = {$config.no_cache}
+    uniqueLinkVars = 1
+    pageTitleFirst = 1
+    linkVars = L
+    prefixLocalAnchors = {$config.prefixLocalAnchors}
+    renderCharset = utf-8
+    metaCharset = utf-8
+    doctype = html5
+    removeDefaultJS = {$config.removeDefaultJS}
+    inlineStyle2TempFile = 1
+    admPanel = {$config.admPanel}
+    debug = 0
+    cache_period = 2592000
+    sendCacheHeaders = {$config.sendCacheHeaders}
+    intTarget =
+    extTarget = _blank
+    disablePrefixComment = 1
+    index_enable = 1
+    index_externals = 1
+    index_metatags = 0
+    headerComment = {$config.headerComment}
+    noScaleUp = 1
+    frontend_editing = 1
+	xmlprologue = none
+	simulateStaticDocuments = 0
+	spamProtectEmailAddresses = -2
+	spamProtectEmailAddresses_atSubst = @~@
+#	linkVars = L(1-3), print
+#	sys_language_uid = 0
+#  language = de
+#  locale_all = de_DE.UTF8
+#  sys_language_isocode = de
+#  htmlTag_langKey = de
+  htmlTag_setParams = lang="de" dir="ltr" class="no-js"
+  headerComment (
+  Konzept, Design & Programmierung: www.winkelbach-web.de/
+ )
+
+#	sys_language_mode = free 
+#    sys_language_overlay = auto
+#    sys_language_overlay = hideNonTranslated
+#	sys_language_softMergeIfNotBlank = tt_content:assets,pages:media
+	typolinkDisableLinksToNonTranslatedPages = 1
+	compressJs = {$config.compressJs}
+	compressCss = {$config.compressCss}
+	concatenateJs = {$config.concatenateJs}
+	concatenateCss = {$config.concatenateCss}
+#	preloadImages = 0
+	noPageTitle = 0
+	htmlSpecialChars = 1
+	pageTitleSeparator = -
+	pageTitleSeparator.noTrimWrap = | | |
+    moveJsFromHeaderToFooter = 1
+}
+
+[siteLanguage("locale") == "en_EN.UTF8"]
+[siteLanguage("title") == "English"]
+    config {
+	htmlTag_langKey = en
+	htmlTag_setParams = lang="en"  dir="ltr" class="no-js"
+
+headerComment (
+ Concept, Design & Programming: www.winkelbach-web.de/
+ )
+}
+[GLOBAL]
+
+[siteLanguage("locale") == "ru_RU.UTF8"]
+[siteLanguage("title") == "Русский"]
+    config {
+htmlTag_langKey = ru
+htmlTag_setParams = lang="ru" dir="ltr" class="no-js"
+headerComment (
+ Концепция, дизайн и программирование: www.winkelbach-web.de/
+ )
+}
+[GLOBAL]

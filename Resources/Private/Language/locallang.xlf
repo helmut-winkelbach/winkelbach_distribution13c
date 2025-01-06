@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2020-02-23UTC21:51:580">
+        <header>
+            <authorName>Helmut Winkelbach</authorName>
+            <authorEmail>helmut@winkelbach-web.de</authorEmail>
+        </header>
+        <body>
+
+			<trans-unit id="search-placeholder">
+				<source>Search website...</source>
+			</trans-unit>
+
+			<trans-unit id="moreButton">
+				<source>more</source>
+			</trans-unit>
+
+			<trans-unit id="login">
+				<source>Login</source>
+			</trans-unit>
+
+			<trans-unit id="logout">
+				<source>Logout</source>
+			</trans-unit>
+			
+			<trans-unit id="read-more">
+				<source>read more</source>
+			</trans-unit>
+
+        </body>
+    </file>
+</xliff>
